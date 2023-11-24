@@ -1,0 +1,27 @@
+name: .NET Core CI
+
+on:
+  push:
+    branches: [ main, feature/initial-tooling ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build and Publish NotificationService
+        working-directory: microservices/NotificationService
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
+          dotnet publish --configuration Release --property:PublishDir=./publish/NotificationService

@@ -25,10 +25,3 @@ jobs:
           dotnet restore
           dotnet build --configuration Release
           dotnet publish --configuration Release --property:PublishDir=./publish/UserService
-
-      - name: Build and Publish NotificationService
-        working-directory: microservices/NotificationService
-        run: |
-          dotnet restore
-          dotnet build --configuration Release
-          dotnet publish --configuration Release --property:PublishDir=./publish/NotificationService
