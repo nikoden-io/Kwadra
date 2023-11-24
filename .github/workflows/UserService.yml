@@ -1,4 +1,4 @@
-name: .NET Core CI
+name: UserService - Asp .Net Micro Service
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: .NET Core CI
+name: NotificationService - Asp .Net Micro Service
 
 on:
   push:
