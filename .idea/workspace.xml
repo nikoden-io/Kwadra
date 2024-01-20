@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c09f282f-3be7-4e7f-860b-55a422687ad5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/kwadra-web-client-actions.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Kwadra.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/markdown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kwadra-web-client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/kwadra-web-client/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/kwadra-web-client-actions.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/kwadra-web-client-actions.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +55,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705773303812</updated>
-      <workItem from="1705773306081" duration="382000" />
+      <workItem from="1705773306081" duration="735000" />
     </task>
     <servers />
   </component>
