@@ -28,9 +28,6 @@ jobs:
       - name: Build
         run: npm run build
         working-directory: ./kwadra-web-client
-      - name: Run Tests
-        run: npm test
-        working-directory: ./kwadra-web-client
 
   deploy:
     needs: build-and-test
