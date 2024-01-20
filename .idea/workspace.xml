@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c09f282f-3be7-4e7f-860b-55a422687ad5" name="Changes" comment="" />
+    <list default="true" id="c09f282f-3be7-4e7f-860b-55a422687ad5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/kwadra-web-client-actions.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/kwadra-web-client-actions.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +54,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705773303812</updated>
-      <workItem from="1705773306081" duration="1416000" />
+      <workItem from="1705773306081" duration="1667000" />
     </task>
     <servers />
   </component>
