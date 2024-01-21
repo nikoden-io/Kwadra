@@ -1,0 +1,47 @@
+name: Kwadra Web Client Actions
+
+on:
+  push:
+    branches: [ main, feature/init-projects ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Change to Project Directory
+        run: cd kwadra-web-client
+      - name: Install Dependencies
+        run: npm install
+        working-directory: ./kwadra-web-client
+      - name: Build
+        run: npm run build
+        working-directory: ./kwadra-web-client
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/feature/init-projects'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/githubactions
+          chmod 600 ~/.ssh/githubactions
+          ssh-keyscan -p 711 ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to Server
+        run: |
+          ssh -p 711 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd /home/nikoden/kwadra-web-client && git pull && npm install && npm run build && pm2 restart all"
