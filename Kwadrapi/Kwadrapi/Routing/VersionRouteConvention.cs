@@ -2,7 +2,7 @@ using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
-namespace Domend;
+namespace Kwadrapi.Routing;
 
 public class VersionRouteConvention : IApplicationModelConvention
 {
