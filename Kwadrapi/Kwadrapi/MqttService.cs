@@ -1,10 +1,17 @@
-
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using MQTTnet;
 using MQTTnet.Client;
-using Microsoft.Extensions.Configuration;
-using System.Text;
+using JsonException = Newtonsoft.Json.JsonException;
 
 namespace Kwadrapi;
+
+public class SensorData
+{
+    [JsonPropertyName("temperature")] public double Temperature { get; set; }
+    [JsonPropertyName("humidity")] public double Humidity { get; set; }
+}
 
 public class MqttService
 {
@@ -40,8 +47,21 @@ public class MqttService
         await _mqttClient.SubscribeAsync(topic);
         _mqttClient.ApplicationMessageReceivedAsync += e =>
         {
-            Console.WriteLine("Message received in class.");
-            Console.WriteLine($"Received message: {Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment)}");
+            var message = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
+            Console.WriteLine($"Received message: {message}");
+
+            try
+            {
+                var sensorData = JsonSerializer.Deserialize<SensorData>(message);
+                if (sensorData != null)
+                    // Now you can work with sensorData as a C# object
+                    Console.WriteLine($"Temperature: {sensorData.Temperature}, Humidity: {sensorData.Humidity}");
+            }
+            catch (JsonException ex)
+            {
+                Console.WriteLine($"Error deserializing MQTT message: {ex.Message}");
+            }
+
             return Task.CompletedTask;
         };
     }
